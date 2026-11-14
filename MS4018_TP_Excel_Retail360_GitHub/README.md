@@ -6,17 +6,22 @@
 
 L'objectif de cet exercice est d'explorer comment utiliser « Copilot in Excel » pour identifier et expérimenter le potentiel de cet outil dans l'analyse de données.
 Les objectifs de cet exercice sont données comme suit: 
-(1) Questions en langage naturel et génération de colonnes calculées ; 
-(2) tendances, insights, graphiques et tableaux croisés dynamiques ; 
-(3) révision des suggestions, surlignage, tri et filtre ; 
-(4) formule expliquée pas à pas et analyse de bout en bout. 
+1. Questions en langage naturel et génération de colonnes calculées ; 
+2. tendances, insights, graphiques et tableaux croisés dynamiques ; 
+3. révision des suggestions, surlignage, tri et filtre ; 
+4. formule expliquée pas à pas et analyse de bout en bout. 
+
 Le scénario Retail360 est une **proposition créée pour atteindre ces objectifs**.
 
 **Résultat visé :** transformer un export brut de commandes en diagnostic commercial vérifiable, avec des formules, des segments de vente, un graphique et trois recommandations pour la direction.
 
 ## 2. Contexte métier et mission
 
-Retail360 est une entreprise fictive qui vend des ordinateurs, écrans, accessoires, mobilier, fournitures et équipements électroniques en France. Les commandes proviennent de boutiques, du commerce en ligne et de revendeurs. Vous êtes analyste commercial. Votre directrice des ventes demande : « Quel chiffre d'affaires avons-nous réalisé en 2025 ? Quels produits, régions et canaux tirent les ventes ? Les remises dégradent-elles nos marges ? Préparez une synthèse factuelle et un graphique. »
+Retail360 est une entreprise fictive qui vend des ordinateurs, écrans, accessoires, mobilier, fournitures et équipements électroniques en France. 
+Les commandes proviennent de boutiques, du commerce en ligne et de revendeurs. 
+
+Vous êtes analyste commercial. Votre directrice des ventes demande : « Quel chiffre d'affaires avons-nous réalisé en 2025 ? 
+Quels produits, régions et canaux tirent les ventes ? Les remises dégradent-elles nos marges ? Préparez une synthèse factuelle et un graphique. »
 
 **Convention essentielle :** Pour finaliser cet exercice, on se propose d'appliquer certaines conventions données comme suit:
 - Seules les commandes `Livrée` contribuent au chiffre d'affaires net et à la marge réalisée ; 
@@ -27,15 +32,24 @@ Retail360 est une entreprise fictive qui vend des ordinateurs, écrans, accessoi
 
 ## 3. Fichiers fournis
 
-Pour ce TP, nous utiliserons un jeu de données fictif représentant l'activité commerciale de **Retail360**, une entreprise fictive spécialisée dans la vente de produits divers (informatique, électronique, mobilier, accessoires et fournitures de bureau). L'entreprise réalise des ventes dans cinq régions françaises, à travers différents canaux de distribution : boutique, e-commerce et revendeurs.
-Le fichier principal **`ventes_retail360_2025.csv`** contient **600 commandes réalisées en 2025**, réparties sur 12 produits et 5 catégories. Chaque commande comporte des informations telles que la date, le produit, la région, le canal de vente, le commercial, la quantité, le prix unitaire, la remise et le statut de la commande.
+Pour ce TP, nous utiliserons un jeu de données fictif représentant l'activité commerciale de **Retail360**, une entreprise fictive spécialisée dans la vente de produits divers 
+(informatique, électronique, mobilier, accessoires et fournitures de bureau). L'entreprise réalise des ventes dans cinq régions françaises, à travers différents canaux de 
+distribution : boutique, e-commerce et revendeurs.
+
+Le fichier principal **`ventes_retail360_2025.csv`** contient **600 commandes réalisées en 2025**, réparties sur 12 produits et 5 catégories. Chaque commande comporte des 
+informations telles que la date, le produit, la région, le canal de vente, le commercial, la quantité, le prix unitaire, la remise et le statut de la commande.
+
 L'objectif est d'exploiter ces données avec **Microsoft 365 Copilot dans Excel** pour analyser les performances commerciales, calculer des indicateurs clés (chiffre d'affaires, marge, remises), identifier les tendances et générer des tableaux croisés dynamiques ainsi que des graphiques.
 Un second fichier, **`ventes_retail360_2025_qualite.csv`**, est également disponible. Il contient des anomalies volontaires (doublons, valeurs manquantes, remises inhabituelles, etc.) afin de proposer des exercices complémentaires sur la détection et l'amélioration de la qualité des données avec Copilot.
 
 ### Dictionnaire de données
 
-Le dataset Retail360 est composé de 14 colonnes, chacune représentant une information spécifique liée aux commandes commerciales. Ces données permettent d'analyser les ventes selon plusieurs dimensions : temporelle, géographique, commerciale et financière.
-Le tableau ci-dessous présente la structure du jeu de données, avec le nom des colonnes, leur type, leur signification et un exemple de valeur. Ce dictionnaire servira de référence pour comprendre les données, formuler des requêtes pertinentes avec Microsoft 365 Copilot et interpréter correctement les résultats des analyses.
+Le dataset **Retail360** est composé de 14 colonnes, chacune représentant une information spécifique liée aux commandes commerciales. 
+Ces données permettent d'analyser les ventes selon plusieurs dimensions : temporelle, géographique, commerciale et financière.
+
+Le tableau ci-dessous présente la structure du jeu de données, avec le nom des colonnes, leur type, leur signification et un exemple de valeur. 
+Ce dictionnaire servira de référence pour comprendre les données, formuler des requêtes pertinentes avec Microsoft 365 Copilot et interpréter correctement 
+les résultats des analyses.
 
 | Colonne | Sens | Exemple / remarque |
 |---|---|---|
@@ -104,7 +118,7 @@ Présente les résultats dans des tableaux chiffrés et explique brièvement les
 **Prompt 4 — Calcul du chiffre d'affaire net HT**
 
 ```text
-Dans le tableau **Ventes**, ajoute une nouvelle colonne nommée `CA_Net_HT` qui calcule le chiffre d'affaires net hors taxes de chaque commande, en tenant compte des quantités vendues, des prix unitaires et des remises appliquées.
+Dans le tableau Ventes, ajoute une nouvelle colonne nommée `CA_Net_HT` qui calcule le chiffre d'affaires net hors taxes de chaque commande, en tenant compte des quantités vendues, des prix unitaires et des remises appliquées.
 Seules les commandes dont le statut est **« Livrée »** doivent générer du chiffre d'affaires. 
 Pour les autres statuts, la valeur doit être égale à zéro.
 Génère la formule Excel adaptée et explique brièvement son fonctionnement avant de l'appliquer.
@@ -141,7 +155,7 @@ Conserve les valeurs et les formules existantes sans les modifier.
 **Prompt 7 — Calculer le total des remises appliquées**
 
 ```text
-Dans le tableau **Ventes**, ajoute une nouvelle colonne nommée `Montant_Remise_HT` permettant de calculer le montant total de la remise accordée pour chaque commande, en tenant compte de la quantité, du prix unitaire HT et du taux de remise.
+Dans le tableau Ventes, ajoute une nouvelle colonne nommée `Montant_Remise_HT` permettant de calculer le montant total de la remise accordée pour chaque commande, en tenant compte de la quantité, du prix unitaire HT et du taux de remise.
 Génère la formule Excel correspondante, explique brièvement son fonctionnement et applique-la à toutes les lignes du tableau.
 ```
 
@@ -165,30 +179,30 @@ canal de distribution et région, et à identifier les segments les plus perform
 **Prompt 9 — Générer un visuel**
 
 ```text
-À partir des résultats de l'analyse des ventes du tableau **Ventes**, crée les graphiques suivants :
-1. **Histogramme** : chiffre d'affaires net HT par catégorie de produits, classé par ordre décroissant.
-2. **Graphique en colonnes** : comparaison du chiffre d'affaires net HT et de la marge HT par canal de distribution.
-3. **Graphique en barres** : chiffre d'affaires net HT par région.
-4. **Graphique en courbes** : évolution mensuelle du chiffre d'affaires net HT sur l'année 2025.
+À partir des résultats de l'analyse des ventes du tableau Ventes, crée les graphiques suivants :
+1. Histogramme : chiffre d'affaires net HT par catégorie de produits, classé par ordre décroissant.
+2. Graphique en colonnes : comparaison du chiffre d'affaires net HT et de la marge HT par canal de distribution.
+3. Graphique en barres : chiffre d'affaires net HT par région.
+4. Graphique en courbes : évolution mensuelle du chiffre d'affaires net HT sur l'année 2025.
 
-Utilise uniquement les commandes dont le statut est **« Livrée »**. 
+Utilise uniquement les commandes dont le statut est « Livrée ». 
 Ajoute des titres explicites, affiche les montants en euros et insère les graphiques dans une nouvelle feuille nommée `Dashboard_Ventes`, 
 si cette action est disponible.
 ```
 
-![Génération de visuel par prompt avec Copilot](images/01-Générer les visuels.png)
+![Génération de visuel par prompt avec Copilot](images/01-generer-les-visuels.png)
 
 *Figure 1 — Générer des visuels de l'analyse avec des prompts Copilot.*
 
 **Prompt 10 — Générer un rapport complet des tendances et anomalies**
 
 ```text
-À partir du tableau **Ventes**, réalise une analyse des performances commerciales de Retail360 pour l'année 2025, en considérant uniquement les commandes dont le statut est « Livrée ».
-1. Identifie les **5 produits les plus performants** en chiffre d'affaires net HT et les 5 plus rentables en marge HT.
-2. Repère les **régions dont le taux de marge est inférieur au taux global** de l'entreprise.
-3. Analyse les **remises accordées par canal de distribution** et leur relation avec la rentabilité.
-4. Compare le **chiffre d'affaires par type de client**.
-5. Identifie **3 tendances ou anomalies significatives** et propose des pistes d'amélioration.
+À partir du tableau Ventes, réalise une analyse des performances commerciales de Retail360 pour l'année 2025, en considérant uniquement les commandes dont le statut est « Livrée ».
+1. Identifie les 5 produits les plus performants en chiffre d'affaires net HT et les 5 plus rentables en marge HT.
+2. Repère les régions dont le taux de marge est inférieur au taux global** de l'entreprise.
+3. Analyse les remises accordées par canal de distribution** et leur relation avec la rentabilité.
+4. Compare le chiffre d'affaires par type de client.
+5. Identifie 3 tendances ou anomalies significatives et propose des pistes d'amélioration.
 Présente les résultats dans des tableaux chiffrés, avec les classements et les indicateurs utilisés. Termine par une synthèse de **3 recommandations commerciales**, en distinguant les faits observés des hypothèses à vérifier.
 ```
 
