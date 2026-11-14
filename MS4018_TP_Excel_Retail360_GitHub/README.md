@@ -4,22 +4,38 @@
 
 ## 1. Alignement avec le cahier des charges
 
-Le document client *Unlocking Productivity with M365 Copilot Premium*, page 2, attribue **30 minutes** à « Copilot in Excel » dans un cursus de 2 heures. La page 4 décrit quatre objectifs : (1) questions en langage naturel et génération de colonnes calculées ; (2) tendances, insights, graphiques et tableaux croisés dynamiques ; (3) révision des suggestions, surlignage, tri et filtre ; (4) formule expliquée pas à pas et analyse de bout en bout. Le scénario Retail360 est une **proposition pédagogique créée pour satisfaire ces objectifs** : il ne figure pas dans le PDF du client.
+L'objectif de cet exercice est d'explorer comment utiliser « Copilot in Excel » pour identifier et expérimenter le potentiel de cet outil dans l'analyse de données.
+Les objectifs de cet exercice sont données comme suit: 
+(1) Questions en langage naturel et génération de colonnes calculées ; 
+(2) tendances, insights, graphiques et tableaux croisés dynamiques ; 
+(3) révision des suggestions, surlignage, tri et filtre ; 
+(4) formule expliquée pas à pas et analyse de bout en bout. 
+Le scénario Retail360 est une **proposition créée pour atteindre ces objectifs**.
 
 **Résultat visé :** transformer un export brut de commandes en diagnostic commercial vérifiable, avec des formules, des segments de vente, un graphique et trois recommandations pour la direction.
 
 ## 2. Contexte métier et mission
 
-Retail360 vend des ordinateurs, écrans, accessoires, mobilier, fournitures et équipements électroniques en France. Les commandes proviennent de boutiques, du commerce en ligne et de revendeurs. Vous êtes analyste commercial. Votre directrice des ventes demande : « Quel chiffre d'affaires avons-nous réalisé en 2025 ? Quels produits, régions et canaux tirent les ventes ? Les remises dégradent-elles nos marges ? Préparez une synthèse factuelle et un graphique. »
+Retail360 est une entreprise fictive qui vend des ordinateurs, écrans, accessoires, mobilier, fournitures et équipements électroniques en France. Les commandes proviennent de boutiques, du commerce en ligne et de revendeurs. Vous êtes analyste commercial. Votre directrice des ventes demande : « Quel chiffre d'affaires avons-nous réalisé en 2025 ? Quels produits, régions et canaux tirent les ventes ? Les remises dégradent-elles nos marges ? Préparez une synthèse factuelle et un graphique. »
 
-**Convention essentielle :** seules les commandes `Livrée` contribuent au chiffre d'affaires net et à la marge réalisée ; `Annulée` et `Retournée` sont exclues. Le chiffre d'affaires est **HT après remise**, pas le montant brut avant remise. Le coût des produits est pris en compte uniquement sur les unités livrées. Il s'agit de données fictives.
+**Convention essentielle :** Pour finaliser cet exercice, on se propose d'appliquer certaines conventions données comme suit:
+- Seules les commandes `Livrée` contribuent au chiffre d'affaires net et à la marge réalisée ; 
+- Les commandes `Annulée` et `Retournée` sont exclues. 
+- Le chiffre d'affaires est **HT après remise**, pas le montant brut avant remise. 
+- Le coût des produits est pris en compte uniquement sur les unités livrées. 
+- Il s'agit de données fictives.
 
 ## 3. Fichiers fournis
 
-- `ventes_retail360_2025.csv` : **600 lignes**, 14 colonnes, données propres pour le parcours de 30 minutes ; séparateur `;`, UTF-8 avec BOM, dates ISO `AAAA-MM-JJ`, décimales avec point dans le fichier CSV.
-- `ventes_retail360_2025_qualite.csv` : **601 lignes**, variante pour l'atelier bonus sur la qualité ; anomalies volontaires : casse incohérente d'une région, remise aberrante à 85 %, quantité nulle, nom de produit manquant et ID dupliqué. Ne pas utiliser pour les résultats de référence du TP principal.
+Pour ce TP, nous utiliserons un jeu de données fictif représentant l'activité commerciale de **Retail360**, une entreprise fictive spécialisée dans la vente de produits divers (informatique, électronique, mobilier, accessoires et fournitures de bureau). L'entreprise réalise des ventes dans cinq régions françaises, à travers différents canaux de distribution : boutique, e-commerce et revendeurs.
+Le fichier principal **`ventes_retail360_2025.csv`** contient **600 commandes réalisées en 2025**, réparties sur 12 produits et 5 catégories. Chaque commande comporte des informations telles que la date, le produit, la région, le canal de vente, le commercial, la quantité, le prix unitaire, la remise et le statut de la commande.
+L'objectif est d'exploiter ces données avec **Microsoft 365 Copilot dans Excel** pour analyser les performances commerciales, calculer des indicateurs clés (chiffre d'affaires, marge, remises), identifier les tendances et générer des tableaux croisés dynamiques ainsi que des graphiques.
+Un second fichier, **`ventes_retail360_2025_qualite.csv`**, est également disponible. Il contient des anomalies volontaires (doublons, valeurs manquantes, remises inhabituelles, etc.) afin de proposer des exercices complémentaires sur la détection et l'amélioration de la qualité des données avec Copilot.
 
 ### Dictionnaire de données
+
+Le dataset Retail360 est composé de 14 colonnes, chacune représentant une information spécifique liée aux commandes commerciales. Ces données permettent d'analyser les ventes selon plusieurs dimensions : temporelle, géographique, commerciale et financière.
+Le tableau ci-dessous présente la structure du jeu de données, avec le nom des colonnes, leur type, leur signification et un exemple de valeur. Ce dictionnaire servira de référence pour comprendre les données, formuler des requêtes pertinentes avec Microsoft 365 Copilot et interpréter correctement les résultats des analyses.
 
 | Colonne | Sens | Exemple / remarque |
 |---|---|---|
@@ -38,40 +54,25 @@ Retail360 vend des ordinateurs, écrans, accessoires, mobilier, fournitures et �
 | Cout_Unitaire_HT | Coût unitaire HT | EUR par unité |
 | Statut | État de commande | Livrée, Retournée, Annulée |
 
-### Préparation technique par le formateur (avant la session)
+### Pré-requis technique avant la session)
 
 1. Vérifier que chaque participant dispose d'une licence **Microsoft 365 Copilot éligible à Copilot dans Excel**, d'une version d'Excel compatible et d'un accès OneDrive ou SharePoint selon la configuration de l'organisation.
 2. Déposer le CSV principal dans un espace partagé et préparer un classeur Excel `.xlsx` enregistré dans OneDrive/SharePoint si l'environnement l'exige. Éviter de rester sur le CSV : les formules, graphiques et tableaux doivent être conservés dans le `.xlsx`.
 3. Dans Excel, importer via **Données > À partir d'un fichier texte/CSV** ; vérifier le délimiteur point-virgule, la conversion des dates et des nombres, puis **Charger**. Adapter les paramètres régionaux d'import si nécessaire.
 4. Cliquer dans la plage, **Insertion > Tableau**, cocher « Mon tableau comporte des en-têtes » et nommer le tableau `Ventes` dans l'onglet **Création de tableau**.
 5. Enregistrer sous `Retail360_Analyse_Copilot.xlsx`. Vérifier que le bouton Copilot est accessible et que le tableau est reconnu. Les fonctions, boutons et capacités exacts varient selon le canal, la licence et la version d'Excel ; préparer un plan B manuel.
-6. Ne jamais utiliser de données clients réelles pour ce TP. Vérifier le contexte de partage et les permissions avant de demander une analyse à Copilot.
 
-## 4. Déroulé chronométré — 30 minutes exactement
+## 4. Guide pas à pas : parcours principal
 
-| Temps | Durée | Manipulation principale | Livrable observable |
-|---|---:|---|---|
-| 00:00–03:00 | 3 min | Ouvrir le classeur, contrôler le tableau `Ventes`, repérer les champs | Source exploitable |
-| 03:00–07:00 | 4 min | Interroger Copilot sur structure, statuts et qualité | Compréhension du dataset |
-| 07:00–13:00 | 6 min | Faire proposer, expliquer, vérifier et appliquer des colonnes de formules | CA et marge calculés |
-| 13:00–18:00 | 5 min | Explorer KPI, tendances, catégories et remises | 3 constats chiffrés |
-| 18:00–23:00 | 5 min | Créer un TCD et un graphique avec Copilot ou le plan B | Synthèse visuelle |
-| 23:00–27:00 | 4 min | Trier, filtrer, mettre en évidence et itérer | Vue des ventes à risque |
-| 27:00–30:00 | 3 min | Vérifier les résultats et produire une synthèse de direction | 3 recommandations |
-
-> **Animation :** faire démontrer chaque étape par le formateur (30–60 s), puis laisser les participants exécuter la manipulation. Si Copilot ne produit pas un objet Excel directement, le faire créer manuellement à partir des suggestions : l'objectif est de savoir **contrôler et appliquer** une réponse, pas de supposer que toute action est automatisée.
-
-## 5. Guide pas à pas : parcours principal
-
-### Étape 1 — Ouvrir et comprendre le tableau (00:00–03:00)
+### Étape 1 — Ouvrir et comprendre le tableau
 
 **Manipulations :** ouvrir le fichier `.xlsx` préparé ; vérifier les 600 commandes et 14 champs initiaux ; sélectionner une cellule du tableau `Ventes` ; repérer les colonnes `Statut`, `Quantite`, `Prix_Unitaire_HT`, `Remise_Pct` et `Cout_Unitaire_HT` ; ouvrir le volet Copilot. Montrer comment retrouver la source utilisée dans la réponse.
 
-**Question d'amorce :** « Que représente une ligne ? Peut-on additionner toutes les commandes pour calculer les ventes réalisées ? » Réponse attendue : non, il faut exclure les statuts non livrés.
+**Question d'amorce :** « Que représente une ligne ? Peut-on additionner toutes les commandes pour calculer les ventes réalisées ? » Réponse: non, il faut exclure les statuts non livrés.
 
-### Étape 2 — Poser des questions métier en langage naturel (03:00–07:00)
+### Étape 2 — Poser des questions métier en langage naturel
 
-**Prompt A — reconnaissance du fichier**
+**Prompt 1 — Reconnaissance du fichier**
 
 ```text
 Tu es analyste des ventes. Analyse uniquement le tableau Excel nommé Ventes.
@@ -80,7 +81,7 @@ les canaux de vente et les valeurs distinctes du champ Statut.
 Ne suppose aucune information absente du tableau. Signale les limites.
 ```
 
-**Prompt B — cadrage du KPI**
+**Prompt 2 — Cadrage du KPI**
 
 ```text
 Dans Ventes, explique pourquoi le chiffre d'affaires réalisé ne doit pas
@@ -89,49 +90,64 @@ nécessaires pour calculer chiffre d'affaires HT net, coût et marge.
 Présente la réponse sous forme de tableau : indicateur, colonnes, règle.
 ```
 
-**Manipulations complémentaires :** reformuler « Quel est le meilleur produit ? » en « Quel produit a le CA HT net livré le plus élevé ? » ; demander les catégories les plus représentées ; demander les valeurs manquantes ; contrôler les nombres de lignes et les statuts via les filtres Excel.
-
-**Contrôle :** la période doit être 2025 ; les trois statuts sont `Livrée`, `Retournée`, `Annulée`. Ne pas considérer une réponse narrative comme preuve de calcul.
-
-### Étape 3 — Construire des formules et les expliquer (07:00–13:00)
-
-**Prompt C — proposition de formules**
+**Prompt 3 — Les top produits et catégories**
 
 ```text
-Dans le tableau Ventes, propose les colonnes calculées suivantes :
+Identifie les 5 produits ayant généré le plus de chiffre d'affaires net HT, en considérant uniquement les commandes livrées et en appliquant les remises.
+Présente les catégories les plus représentées avec leur nombre de commandes. Détecte les valeurs manquantes et indique les colonnes concernées.
+Vérifie le nombre total de commandes, leur répartition par statut (Livrée, Retournée, Annulée) et confirme que toutes les dates appartiennent à 2025.
+Présente les résultats dans des tableaux chiffrés et explique brièvement les calculs effectués. Ne modifie pas les données sources.
+```
+
+### Étape 3 — Construire des formules et les expliquer
+
+**Prompt 4 — Calcul du chiffre d'affaire net HT**
+
+```text
+Dans le tableau **Ventes**, ajoute une nouvelle colonne nommée `CA_Net_HT` qui calcule le chiffre d'affaires net hors taxes de chaque commande, en tenant compte des quantités vendues, des prix unitaires et des remises appliquées.
+Seules les commandes dont le statut est **« Livrée »** doivent générer du chiffre d'affaires. 
+Pour les autres statuts, la valeur doit être égale à zéro.
+Génère la formule Excel adaptée et explique brièvement son fonctionnement avant de l'appliquer.
+```
+
+**Prompt 5 — Proposition de formules**
+
+```text
+Dans le tableau Ventes du fichier excel, ajoute les colonnes calculées suivantes au tableau en utilisant les forules associées:
 1. CA_Net_HT : Quantite × Prix_Unitaire_HT × (1 − Remise_Pct),
    uniquement si Statut = "Livrée", sinon 0.
 2. Cout_Total_HT : Quantite × Cout_Unitaire_HT si Livrée, sinon 0.
 3. Marge_HT : CA_Net_HT − Cout_Total_HT.
 4. Taux_Marge : Marge_HT / CA_Net_HT si CA_Net_HT > 0, sinon 0.
-Explique chaque formule pas à pas, donne sa version Excel français avec
-références structurées, et demande ma validation avant toute modification.
 ```
 
-**Formules de référence (Excel en français ; séparateur `;`) :**
-
-```excel
-=SI([@Statut]="Livrée";[@Quantite]*[@Prix_Unitaire_HT]*(1-[@Remise_Pct]);0)
-=SI([@Statut]="Livrée";[@Quantite]*[@Cout_Unitaire_HT];0)
-=[@CA_Net_HT]-[@Cout_Total_HT]
-=SI([@CA_Net_HT]>0;[@Marge_HT]/[@CA_Net_HT];0)
-```
-
-**Manipulations :** lire les formules proposées ; vérifier les conditions sur `Statut` ; demander à Copilot d'expliquer la remise de 10 % sur une commande de deux unités ; accepter les suggestions si elles sont correctes ; sinon créer les quatre colonnes à droite du tableau et saisir les formules ; formater `CA_Net_HT`, `Cout_Total_HT`, `Marge_HT` en devise EUR et `Taux_Marge` en pourcentage. Contrôler une ligne `Livrée` et une ligne `Annulée`.
-
-**Prompt D — correction / itération**
+**Prompt 6 — Changer le format des colonnes**
 
 ```text
-Ta proposition doit exclure les commandes Retournée et Annulée du chiffre
-d'affaires et de la marge. Corrige les formules sans modifier les données
-sources. Explique en une phrase la différence entre marge en euros et taux de marge.
+Dans le tableau Ventes, applique les formats suivants :
+CA_Net_HT, Cout_Total_HT et Marge_HT : format monétaire en euros (€), avec deux décimales.
+Taux_Marge : format pourcentage (%), avec deux décimales.
+Conserve les valeurs et les formules existantes sans les modifier.
 ```
 
-**Piège pédagogique :** `Marge_HT / CA_Net_HT` correspond ici au **taux de marge sur chiffre d'affaires**, souvent appelé **taux de marque** dans le vocabulaire commercial français. Pour éviter l'ambiguïté, renommer idéalement cette colonne `Taux_Marge_sur_CA` ; la formule ne représente pas `Marge / Coût`.
+**Manipulations :** 
+- Lire les formules proposées ; 
+- Vérifier les conditions sur `Statut` ; 
+- Accepter les suggestions si elles sont correctes ; 
+- Sinon créer les quatre colonnes à droite du tableau et saisir les formules ;
+- Formater `CA_Net_HT`, `Cout_Total_HT`, `Marge_HT` en devise EUR et `Taux_Marge` en pourcentage. 
+- Contrôler une ligne `Livrée` et une ligne `Annulée`.
+
+**Prompt 7 — Calculer le total des remises appliquées**
+
+```text
+Dans le tableau **Ventes**, ajoute une nouvelle colonne nommée `Montant_Remise_HT` permettant de calculer le montant total de la remise accordée pour chaque commande, en tenant compte de la quantité, du prix unitaire HT et du taux de remise.
+Génère la formule Excel correspondante, explique brièvement son fonctionnement et applique-la à toutes les lignes du tableau.
+```
 
 ### Étape 4 — Analyser la performance (13:00–18:00)
 
-**Prompt E — diagnostic chiffré**
+**Prompt 8 — Diagnostic chiffré**
 
 ```text
 À partir du tableau Ventes et des colonnes calculées, considère uniquement
@@ -142,66 +158,97 @@ Présente ensuite les 5 catégories classées par CA, les 3 canaux et les
 Précise les critères de calcul et ne mélange pas moyenne des taux et taux global.
 ```
 
-**Prompt F — tendances et anomalies**
+Ce prompt permet de montrer comment Copilot dans Excel peut réaliser une analyse commerciale multidimensionnelle à partir des données de ventes. 
+Il aide à calculer les indicateurs clés de performance (chiffre d'affaires, marge et taux de marge), à comparer les résultats par catégorie, 
+canal de distribution et région, et à identifier les segments les plus performants.
+
+**Prompt 9 — Générer un visuel**
 
 ```text
-Analyse l'évolution mensuelle du CA_Net_HT des ventes Livrée en 2025.
-Identifie le meilleur et le moins bon mois, la tendance générale et deux
-hypothèses à investiguer. Distingue clairement faits observés et hypothèses.
-Compare aussi les remises accordées par canal sans affirmer de causalité.
+À partir des résultats de l'analyse des ventes du tableau **Ventes**, crée les graphiques suivants :
+1. **Histogramme** : chiffre d'affaires net HT par catégorie de produits, classé par ordre décroissant.
+2. **Graphique en colonnes** : comparaison du chiffre d'affaires net HT et de la marge HT par canal de distribution.
+3. **Graphique en barres** : chiffre d'affaires net HT par région.
+4. **Graphique en courbes** : évolution mensuelle du chiffre d'affaires net HT sur l'année 2025.
+
+Utilise uniquement les commandes dont le statut est **« Livrée »**. 
+Ajoute des titres explicites, affiche les montants en euros et insère les graphiques dans une nouvelle feuille nommée `Dashboard_Ventes`, 
+si cette action est disponible.
 ```
 
-**Manipulations :** demander « top 5 produits par CA » ; « top 5 par marge » ; « régions sous le taux de marge global » ; « impact des remises » ; « CA par type de client ». Vérifier le classement par un tri ou un TCD. Ne pas confondre volume, CA et rentabilité.
+![Génération de visuel par prompt avec Copilot](images/01-Générer les visuels.png)
+
+*Figure 1 — Générer des visuels de l'analyse avec des prompts Copilot.*
+
+**Prompt 10 — Générer un rapport complet des tendances et anomalies**
+
+```text
+À partir du tableau **Ventes**, réalise une analyse des performances commerciales de Retail360 pour l'année 2025, en considérant uniquement les commandes dont le statut est « Livrée ».
+1. Identifie les **5 produits les plus performants** en chiffre d'affaires net HT et les 5 plus rentables en marge HT.
+2. Repère les **régions dont le taux de marge est inférieur au taux global** de l'entreprise.
+3. Analyse les **remises accordées par canal de distribution** et leur relation avec la rentabilité.
+4. Compare le **chiffre d'affaires par type de client**.
+5. Identifie **3 tendances ou anomalies significatives** et propose des pistes d'amélioration.
+Présente les résultats dans des tableaux chiffrés, avec les classements et les indicateurs utilisés. Termine par une synthèse de **3 recommandations commerciales**, en distinguant les faits observés des hypothèses à vérifier.
+```
 
 ### Étape 5 — Tableau croisé dynamique et graphique (18:00–23:00)
 
-**Prompt G — TCD**
+**Prompt 11 — TCD**
 
 ```text
 Propose un tableau croisé dynamique à partir de Ventes, filtré sur Statut = Livrée.
 Lignes : Categorie. Colonnes : Canal. Valeurs : somme de CA_Net_HT et somme
-de Marge_HT. Indique les étapes exactes de construction et les erreurs à éviter.
-Si tu peux créer le TCD dans Excel, propose de le faire dans une nouvelle feuille
-nommée Synthese_Categories, après confirmation.
+de Marge_HT. Créer le TCD dans une nouvelle feuille du fichier Excel nommée Synthese_Categories, après confirmation.
 ```
 
-**Manipulations / plan B manuel :** `Insertion > Tableau croisé dynamique` ; source `Ventes` ; nouvelle feuille ; placer `Categorie` en lignes, `Canal` en colonnes, `CA_Net_HT` et `Marge_HT` en valeurs (agrégation **Somme**), `Statut` en filtre puis choisir `Livrée`. Renommer la feuille `Synthese_Categories`. Vérifier que les totaux concordent avec les KPI.
+![Génération de TCD](images/02-Générer le TCD.png)
+*Figure 2 — Générer un TCD avec des prompts Copilot.*
 
-**Prompt H — graphique**
+1- Cliquer sur **Done** pour valider la création de votre TCD et le rajouter à la nouvelle feuille sous excel.
+2- Cliqer à droite sur le bouton **PivotTable Fields** comme indiqué ci-dessous:
 
-```text
-Propose un graphique en colonnes comparant le CA_Net_HT des catégories
-pour les commandes Livrée. Donne un titre explicite, les unités en euros,
-un ordre décroissant et une recommandation de lisibilité. Si possible,
-crée le graphique à partir du tableau croisé dynamique après confirmation.
-```
+![Manipulation du TCD](images/03-Manipuler les champs de votre TCD.png)
+*Figure 3 — Passer en mode edition de votre TCD sur la feuille Excel.* 
 
-**Manipulations :** insérer un graphique en colonnes depuis le TCD ; renommer « Chiffre d'affaires HT net par catégorie — 2025 » ; vérifier les unités, les étiquettes et le filtre `Livrée`. Variante si temps : graphique en courbe du CA mensuel ; segment (slicer) `Canal` ; chronologie `Date_Commande`.
+3- Sélectionner le champs Cout_Total_HT pour l'ajouter à votre TCD
 
+![Ajouter un champs à votre TCD](images/04-Ajouter le champs Cout_Total_HT à votre TCD.png)
+*Figure 4 — Ajouter le champs Cout_Total_HT à votre TCD.*
+ 
 ### Étape 6 — Filtrer, trier, surligner, améliorer (23:00–27:00)
 
-**Prompt I — repérage des ventes à surveiller**
+**Prompt 12 — Repérage des ventes à surveiller**
 
 ```text
-Dans Ventes, aide-moi à repérer les commandes Livrée dont Remise_Pct
-est supérieure ou égale à 15 % et dont Taux_Marge est inférieur à 20 %.
+Dans Ventes, identifie les commandes Livrée dont Remise_Pct
+est supérieure ou égale à 0.15 et dont Taux_Marge est inférieur à 20%.
 Propose un filtre, un tri par Marge_HT croissante et une mise en forme
-conditionnelle des lignes concernées. Ne modifie rien sans ma validation.
+conditionnelle pour ajouter des barres en rouge à la colonne Taux de marge.
 ```
 
-**Manipulations :** filtrer `Statut = Livrée`, `Remise_Pct >= 15 %`, `Taux_Marge < 20 %` ; trier `Marge_HT` croissante ; surligner la colonne `Taux_Marge` avec une règle `Inférieur à 0,20` ; contrôler que la règle s'applique à la plage attendue ; effacer les filtres à la fin. Si la mise en forme conditionnelle n'est pas réalisable depuis Copilot, utiliser **Accueil > Mise en forme conditionnelle**.
+**Manipulations :** 
+- Filtrer `Statut = Livrée`, `Remise_Pct >= 0.15`, `Taux_Marge < 20 %` ; 
+- Trier `Marge_HT` croissante ; 
+- Surligner la colonne `Taux_Marge` avec une règle `Inférieur à 0,20` ; 
+- Contrôler que la règle s'applique à la plage attendue ; 
+- Vérifier que vous avez les barres en rouge dans la colonne Taux_Marge.
 
-**Prompt J — itération**
+![Tri et filtre appliqué au tableau des ventes](images/05- Filtres et mise en forme conditionnelle.png)
+*Figure 5 — Ajouter un filtre et une mise en forme conditionnell aux colonnes du tableau.*
+
+**Prompt 13 — Restauration des résultats**
 
 ```text
-Réduis le périmètre aux commandes Livrée du canal E-commerce.
-Explique quels filtres sont actifs, combien de lignes restent visibles,
-et pourquoi un faible taux de marge ne signifie pas automatiquement une perte.
+Copie le résultat de l'analyse précédente dans une nouvelle feuille nommée `Analyse_Remises_Risque`, 
+en conservant les données, le tri et la mise en forme conditionnelle.
+Ensuite, restaure la feuille principale `Ventes` dans son état initial, en supprimant les filtres, 
+les tris et les mises en forme ajoutés lors de l'analyse, sans modifier les données ni les formules d'origine.
 ```
 
-### Étape 7 — Vérification et restitution (27:00–30:00)
+### Étape 7 — Vérification et restitution
 
-**Prompt K — synthèse pour la direction**
+**Prompt 14 — synthèse pour la direction**
 
 ```text
 Rédige une synthèse de direction de 120 mots maximum fondée uniquement sur
@@ -210,11 +257,22 @@ et 3 actions commerciales concrètes. Pour chaque chiffre, précise le filtre
 Statut = Livrée et la mesure utilisée. N'invente ni causalité ni prévision.
 ```
 
-**Débrief :** un participant montre un KPI, un graphique et un filtre ; le groupe vérifie un résultat à l'aide d'Excel. Poser les questions : « Qu'a calculé Copilot ? », « Qu'avons-nous vérifié ? », « Quelle décision serait prématurée ? ».
+**Débrief :** 
+- Un analyste montre un KPI, un graphique et un filtre ; 
+- Le groupe vérifie un résultat à l'aide d'Excel. Poser les questions : « Qu'a calculé Copilot ? », « Qu'avons-nous vérifié ? », « Quelle décision serait prématurée ? ».
 
 ## 6. Résultats de contrôle (fichier principal uniquement)
 
-Ces chiffres proviennent du CSV principal généré avec une graine fixe, et permettent de contrôler la cohérence des manipulations :
+**Prompt 15 — Validation des résultats obtenus**
+
+```text
+Rédige une synthèse de direction de 120 mots maximum fondée uniquement sur
+le tableau Ventes. Donne 3 constats chiffrés vérifiables, 2 points de vigilance
+et 3 actions commerciales concrètes. Pour chaque chiffre, précise le filtre
+Statut = Livrée et la mesure utilisée. N'invente ni causalité ni prévision.
+```
+
+Ces chiffres proviennent du CSV principal généré avec une graine fixe, et permettent de contrôler la cohérence des manipulations et vérifier l'exactitude des résultats retournés par Copilot :
 
 | Mesure | Valeur attendue |
 |---|---:|
@@ -224,22 +282,22 @@ Ces chiffres proviennent du CSV principal généré avec une graine fixe, et per
 | Marge HT réalisée | **126 093,35 €** |
 | Taux de marge sur CA global | **28,85 %** (arrondi) |
 
-Le nombre de commandes non livrées est 95. **Attention :** un calcul qui additionne tous les statuts ou utilise le prix avant remise ne correspond pas à ces résultats. Les résultats peuvent différer si un participant travaille sur la variante « qualité », modifie les filtres ou importe incorrectement les décimales.
+Le nombre de commandes non livrées est 95. 
+**Attention :** un calcul qui additionne tous les statuts ou utilise le prix avant remise ne correspond pas à ces résultats. Les résultats peuvent différer si un participant travaille sur la variante « qualité », modifie les filtres ou importe incorrectement les décimales.
 
 ## 7. Banque de manipulations supplémentaires (hors des 30 minutes)
 
-Chaque manipulation est optionnelle et peut devenir une micro-démonstration de 2 à 5 minutes. **Ne pas chercher à tout faire dans les 30 minutes contractuelles.**
-
 ### A. Exploration et compréhension
 
-1. Demander le dictionnaire des colonnes et leur type présumé.
-2. Détecter les colonnes numériques importées comme texte.
-3. Rechercher valeurs vides, doublons d'ID et quantités nulles.
-4. Compter les commandes par statut et par région.
-5. Comparer le nombre de commandes aux unités vendues.
-6. Identifier les dix plus grosses commandes livrées.
-7. Déterminer le panier moyen des commandes livrées : CA / nombre de commandes livrées.
-8. Distinguer moyenne simple de remise et remise pondérée par valeur brute.
+1. Analyse le tableau Ventes et crée un dictionnaire des données indiquant pour chaque colonne son nom, son type présumé (texte, nombre, date, pourcentage) et sa signification métier. Présente le résultat dans un tableau.
+2. Vérifie les types de données du tableau Ventes. Identifie les colonnes numériques ou les dates qui sont enregistrées au format texte. Indique les problèmes détectés et propose les corrections nécessaires sans modifier les données.
+3. Analyse le tableau Ventes et recherche les valeurs vides, les identifiants de commande en doublon et les quantités nulles. Présente les anomalies détectées avec les numéros de lignes concernés.
+4. Compte les commandes par statut et par région dans le tableau Ventes. Présente les résultats dans un tableau croisé dynamique et ajoute un graphique permettant de comparer les régions.
+5. Compare le nombre de commandes livrées et le nombre total d'unités vendues pour chaque catégorie de produits. Présente les résultats dans un tableau et explique brièvement les différences entre ces deux indicateurs.
+6. Identifie les 10 commandes livrées ayant le chiffre d'affaires net HT le plus élevé. Affiche leur identifiant, leur produit, leur région, leur quantité et leur montant. Classe les résultats par ordre décroissant.
+7. Calcule le panier moyen des commandes livrées en divisant le chiffre d'affaires net HT total par le nombre de commandes livrées. Compare ensuite ce panier moyen par canal de distribution et présente les résultats dans un tableau.
+8. Pour les commandes livrées, calcule la remise moyenne simple et la remise moyenne pondérée par le montant brut HT des commandes. Compare les deux résultats, explique leur différence et présente les calculs utilisés.
+9. Dans le tableau Ventes, ajoute une colonne Trimestre qui détermine automatiquement le trimestre de chaque commande à partir de Date_Commande. Utiliser le format suivant: T1-Année pour reoprésenter l'année associé à chaque trimestre.
 
 ### B. Formules et calculs
 
@@ -309,7 +367,7 @@ Chaque manipulation est optionnelle et peut devenir une micro-démonstration de 
 63. Demander un plan de nettoyage **non destructif** de la variante qualité.
 64. Construire une synthèse distinguant observations, hypothèses et recommandations.
 
-## 8. Prompts bonus prêts à copier-coller
+## 8. Prompts supplémentaires pour une analyse commerciale
 
 ### Prompt « Pareto produits »
 
@@ -355,28 +413,34 @@ incorrectes et les conclusions causales non démontrées. Propose une version
 corrigée et explique les vérifications que je dois faire dans Excel.
 ```
 
-## 9. Variantes d'animation
+## 9. Critères de réussite et grille d'évaluation
 
-**Version débutant (30 min) :** le formateur fournit un `.xlsx` déjà importé avec `Ventes` ; les participants réalisent les étapes 1 à 7. Priorité à la compréhension des résultats et à la validation des formules.
+**Objectif de l'évaluation**
 
-**Version intermédiaire (45–60 min) :** ajout de l'import CSV, de deux TCD, des segments, de la courbe mensuelle et d'un audit des remises.
+Cette évaluation vise à mesurer la capacité des participants à exploiter efficacement Microsoft 365 Copilot dans Excel, tout en adoptant une démarche critique face aux résultats générés par l'intelligence artificielle.
 
-**Version avancée (75–90 min) :** ajout de la variante qualité, d'un contrôle Pareto, de KPI pondérés, d'une analyse de sensibilité et d'une restitution argumentée.
+L'évaluation porte sur trois dimensions essentielles : la justesse des calculs, la pertinence des analyses produites et la capacité à vérifier et interpréter les résultats.
 
-**Démo formateur sans accès Copilot :** saisir les formules de référence, créer un TCD manuellement, puis présenter les prompts comme exemples de dialogue à tester ultérieurement. Ne pas présenter une fonctionnalité absente comme disponible.
+**Grille d'évaluation**
 
-## 10. Critères de réussite et grille d'évaluation
-
-| Critère | Points | Preuve |
+| Critère d'évaluation | Points | Indicateur de réussite |
 |---|---:|---|
-| Formulation de prompts précis, ancrés sur `Ventes` | 2 | Prompts A/B/E |
-| Formules correctes et exclusion des non-livrées | 3 | Colonnes calculées, contrôle de deux lignes |
-| Interprétation des KPI et distinction CA/marge | 2 | CA, marge, taux global |
-| TCD et graphique lisibles | 2 | Feuille de synthèse |
-| Vérification critique d'une réponse Copilot | 1 | Correction documentée |
+| Compréhension des données | 1 | Copilot identifie correctement la structure du tableau Ventes, les colonnes et les types de données. |
+| Fiabilité des formules générées | 2 | Les formules sont correctes, les remises sont prises en compte et les commandes non livrées sont exclues des indicateurs réalisés. |
+| Exactitude des indicateurs clés (KPI) | 2 | Le nombre de commandes, le CA net HT, la marge HT et le taux de marge global correspondent aux valeurs de référence. |
+| Pertinence des analyses commerciales | 1.5 | Les classements et comparaisons par produit, catégorie, région et canal reposent sur les bons indicateurs. |
+| Qualité des visualisations | 1 | Les graphiques et tableaux croisés dynamiques sont cohérents avec les données, lisibles et correctement présentés. |
+| Interprétation des résultats | 1 | Les conclusions sont pertinentes, justifiées par des données chiffrées et distinguent les observations des hypothèses. |
+| Vérification critique des réponses | 1.5 | Les résultats sont contrôlés avec Excel, les incohérences sont identifiées et les corrections nécessaires sont apportées. |
 | **Total** | **10** | Réussite conseillée : 7/10 |
 
 ## 11. Dépannage rapide
+
+Cette section présente les **problèmes les plus fréquemment rencontrés lors de l'utilisation de Microsoft 365 Copilot dans Excel**, ainsi que les vérifications et solutions permettant de les résoudre rapidement.
+
+Le tableau ci-dessous sert de **guide de dépannage** pour le formateur et les participants. 
+Il permet d'identifier l'origine d'un dysfonctionnement, qu'il soit lié à la configuration de Copilot, au format des données ou aux fonctionnalités d'Excel, afin de poursuivre le TP sans perdre de temps. 
+Lorsque Copilot ne peut pas réaliser une action, une manipulation manuelle dans Excel peut être utilisée comme solution alternative.
 
 | Symptôme | Vérification / solution |
 |---|---|
@@ -388,33 +452,3 @@ corrigée et explique les vérifications que je dois faire dans Excel.
 | TCD compte au lieu de sommer | Vérifier que `CA_Net_HT` est numérique ; choisir **Somme** dans les paramètres du champ |
 | Résultat incohérent | Contrôler filtres, statut, remise et distinction entre somme des ratios et ratio des sommes |
 | Copilot ne crée pas de TCD/graphique | Demander la procédure et exécuter l'insertion via le ruban Excel ; les capacités varient selon le déploiement |
-
-## 12. Structure recommandée du dépôt GitHub
-
-```text
-ms4018-copilot-excel-retail360/
-├── README.md                           # ce TP (renommer ce fichier)
-├── data/
-│   ├── ventes_retail360_2025.csv
-│   └── ventes_retail360_2025_qualite.csv
-├── exercices/
-│   └── Retail360_Analyse_Copilot.xlsx  # créé par les participants
-└── captures/                           # captures de démo, sans données sensibles
-```
-
-**Versionnement :** conserver les CSV en UTF-8, utiliser des commits distincts pour les changements de données et de prompts, ajouter une version du scénario en tête de document, et ne pas versionner de véritables données clients. Le fichier Excel final peut être ignoré par Git si les productions des participants sont personnelles.
-
-## 13. Check-list formateur avant de démarrer
-
-- [ ] Licence et Copilot dans Excel vérifiés sur le poste de démonstration.
-- [ ] CSV principal importé correctement et classeur `.xlsx` sauvegardé.
-- [ ] Tableau nommé `Ventes` et 600 lignes présentes.
-- [ ] Colonnes de prix et de remise reconnues comme numériques.
-- [ ] Statuts `Livrée`, `Retournée`, `Annulée` vérifiés.
-- [ ] Contrôle du CA net et de la marge effectué avec les valeurs de référence.
-- [ ] Plan B TCD/graphique manuel prêt.
-- [ ] Chronomètre et objectifs des 30 minutes affichés.
-
----
-
-**Source de cadrage :** document client *Unlocking Productivity with M365 Copilot Premium*, pages 2 (durées et prérequis) et 4 (Module 5 : Copilot in Excel). **Dataset, scénario, formules et prompts :** créations pédagogiques originales pour ce TP.
