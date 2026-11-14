@@ -216,18 +216,18 @@ Lignes : Categorie. Colonnes : Canal. Valeurs : somme de CA_Net_HT et somme
 de Marge_HT. Créer le TCD dans une nouvelle feuille du fichier Excel nommée Synthese_Categories, après confirmation.
 ```
 
-![Génération de TCD](images/02-Générer le TCD.png)
+![Génération de TCD](images/02-genere_le_tcd.png)
 *Figure 2 — Générer un TCD avec des prompts Copilot.*
 
 1- Cliquer sur **Done** pour valider la création de votre TCD et le rajouter à la nouvelle feuille sous excel.
 2- Cliqer à droite sur le bouton **PivotTable Fields** comme indiqué ci-dessous:
 
-![Manipulation du TCD](images/03-Manipuler les champs de votre TCD.png)
+![Manipulation du TCD](images/03-Manipuler-les-champs-de-votre-TCD.png)
 *Figure 3 — Passer en mode edition de votre TCD sur la feuille Excel.* 
 
 3- Sélectionner le champs Cout_Total_HT pour l'ajouter à votre TCD
 
-![Ajouter un champs à votre TCD](images/04-Ajouter le champs Cout_Total_HT à votre TCD.png)
+![Ajouter un champs à votre TCD](images/04-Ajouter-le-champs-Cout_Total_HT-a-votre-TCD.png)
 *Figure 4 — Ajouter le champs Cout_Total_HT à votre TCD.*
  
 ### Étape 6 — Filtrer, trier, surligner, améliorer (23:00–27:00)
@@ -248,7 +248,7 @@ conditionnelle pour ajouter des barres en rouge à la colonne Taux de marge.
 - Contrôler que la règle s'applique à la plage attendue ; 
 - Vérifier que vous avez les barres en rouge dans la colonne Taux_Marge.
 
-![Tri et filtre appliqué au tableau des ventes](images/05- Filtres et mise en forme conditionnelle.png)
+![Tri et filtre appliqué au tableau des ventes](images/05- Filtres-et-mise-en-forme-conditionnelle.png)
 *Figure 5 — Ajouter un filtre et une mise en forme conditionnell aux colonnes du tableau.*
 
 **Prompt 13 — Restauration des résultats**
