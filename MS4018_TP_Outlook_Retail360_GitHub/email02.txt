@@ -1,0 +1,45 @@
+Expéditeur: Nadia Benali				
+Adresse de l'expéditeur: nadia.benali@retail360.example
+Destinataire (À): Julien Martin — julien.martin@retail360.example 
+Destinataires en copie (Cc): Sophie Bernard — sophie.bernard@retail360.example ; Lucas Petit — lucas.petit@retail360.example
+Objet: [PRIORITÉ HAUTE] LIVRAISON+ — Analyse des 95 commandes non livrées
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bonjour Julien,
+
+Dans le cadre du projet LIVRAISON+, nous souhaitons mieux comprendre les écarts entre les commandes enregistrées et les commandes effectivement livrées en 2025.
+
+Sur les 600 commandes enregistrées, 505 ont été livrées. Il reste donc 95 commandes qui ne figurent pas dans le périmètre des livraisons réalisées.
+
+Le projet LIVRAISON+ vise à analyser ces commandes, identifier les causes possibles et proposer des pistes d'amélioration du suivi opérationnel.
+
+Nous devons distinguer les commandes annulées et retournées avant toute conclusion. À ce stade, nous ne disposons pas encore d'une ventilation validée des 95 commandes par statut.
+
+Livrables attendus :
+
+- Un tableau de répartition des 95 commandes par statut.
+- Une analyse par région, catégorie de produits et canal de vente.
+- Une identification des situations nécessitant une investigation complémentaire.
+- Trois propositions d'amélioration du suivi des commandes.
+
+Répartition des responsabilités :
+
+- Lucas Petit, responsable logistique : analyser les statuts des commandes et les processus de livraison.
+- Julien Martin, responsable commercial : étudier les éventuels impacts commerciaux.
+- Sophie Bernard, contrôleuse de gestion : vérifier le traitement financier des commandes annulées et retournées.
+- Emma Laurent, responsable relation client : examiner les motifs de réclamation disponibles.
+
+Échéances :
+
+- 17 novembre à 17 h : Lucas transmet la première extraction des statuts.
+- 18 novembre à 12 h : Emma partage une synthèse des réclamations disponibles.
+- 18 novembre à 17 h : Julien et Sophie remettent l'analyse consolidée.
+- 19 novembre à 14 h : réunion de revue opérationnelle.
+
+Attention : les causes des commandes non livrées ne sont pas encore établies. Merci de ne pas présenter d'hypothèses comme des faits confirmés.
+
+Bien cordialement,
+
+Nadia Benali
+Directrice des opérations — Retail360

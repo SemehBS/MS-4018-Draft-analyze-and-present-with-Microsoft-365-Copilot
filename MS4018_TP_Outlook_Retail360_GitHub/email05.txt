@@ -1,0 +1,49 @@
+Expéditeur: Antoine Girard				
+Adresse de l'expéditeur: antoine.girard@retail360.example
+Destinataire (À): Julien Martin — julien.martin@retail360.example 
+Destinataires en copie (Cc): Thomas Leroy — thomas.leroy@retail360.example ; Camille Rousseau — camille.rousseau@retail360.example
+Objet: [À PLANIFIER] DATA VISION 2027 — Réflexion sur le reporting commercial
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bonjour Julien,
+
+Dans le cadre de notre démarche d'amélioration continue, nous souhaitons lancer une réflexion sur le projet DATA VISION 2027.
+
+Ce projet a pour ambition de moderniser progressivement le reporting commercial Retail360 et de faciliter l'accès aux indicateurs de performance.
+
+L'idée est de passer d'une production essentiellement manuelle des rapports à un dispositif plus structuré, combinant Excel, Power BI et Microsoft 365 Copilot lorsque ces outils apportent une valeur ajoutée.
+
+Périmètre envisagé :
+
+- Standardiser les définitions des KPI commerciaux.
+- Réduire les opérations manuelles de consolidation.
+- Faciliter l'analyse par produit, région et canal.
+- Améliorer la qualité et la traçabilité des données.
+- Étudier la création d'un tableau de bord partagé.
+- Définir des règles de validation avant diffusion des chiffres.
+
+Intervenants pressentis :
+
+- Thomas Leroy, responsable informatique décisionnelle : étude technique.
+- Julien Martin, responsable commercial : expression des besoins métier.
+- Sophie Bernard, contrôleuse de gestion : définition des KPI.
+- Camille Rousseau, responsable marketing : besoins de segmentation.
+- Antoine Girard, chef de projet transformation digitale : coordination générale.
+
+Calendrier indicatif :
+
+- 27 novembre 2026 : recueil initial des besoins.
+- 4 décembre 2026 : atelier de cadrage avec les parties prenantes.
+- 11 décembre 2026 à 17 h : remise d'une première note de faisabilité.
+- Janvier 2027 : éventuel lancement d'un pilote, sous réserve de validation.
+
+Ce projet n'est pas prioritaire à court terme. Il ne doit pas retarder les travaux en cours sur le bilan 2025, LIVRAISON+ ou SEGMENT360.
+
+Aucune décision de financement ni de déploiement n'a encore été prise.
+
+Merci de conserver ce sujet dans notre liste de projets à planifier.
+
+Bien cordialement,
+
+Antoine Girard  
+Chef de projet transformation digitale — Retail360

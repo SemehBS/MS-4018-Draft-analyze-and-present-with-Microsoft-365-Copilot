@@ -1,0 +1,56 @@
+Expéditeur: Camille Rousseau				
+Adresse de l'expéditeur: camille.rousseau@retail360.example
+Destinataire (À): Julien Martin — julien.martin@retail360.example 
+Destinataires en copie (Cc): Thomas Leroy — thomas.leroy@retail360.example ; Marie Dubois — marie.dubois@retail360.example
+Objet: [ANALYSE] SEGMENT360 — Étude des performances par région, produit et canal
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Bonjour Julien,
+
+Nous lançons le projet SEGMENT360, dont l'objectif est de mieux comprendre la structure de notre activité commerciale et d'identifier les segments à approfondir dans la préparation de la stratégie 2027.
+
+L'analyse devra porter sur les ventes réalisées en 2025, en utilisant exclusivement les commandes livrées.
+
+Nous souhaitons notamment étudier les dimensions suivantes :
+
+- Régions : comparaison du chiffre d'affaires et de la marge.
+- Catégories de produits : contribution au chiffre d'affaires global.
+- Canaux de vente : répartition des ventes et rentabilité.
+- Types de clients : différences entre les profils de clientèle.
+- Périodes : évolution mensuelle de l'activité.
+
+Le projet se déroulera en trois phases.
+
+Phase 1 — Préparation des données
+
+Thomas Leroy vérifiera la structure du fichier Excel et la cohérence des champs utilisés.
+
+Échéance : 20 novembre 2026 à 17 h.
+
+Phase 2 — Analyse commerciale
+
+Julien Martin réalisera les tableaux croisés dynamiques, les graphiques comparatifs et une synthèse des principaux constats.
+
+Échéance : 24 novembre 2026 à 16 h.
+
+Phase 3 — Recommandations
+
+Marie Dubois examinera les résultats pour sélectionner les axes à approfondir. Les recommandations seront proposées lors d'une réunion prévue le 26 novembre à 10 h.
+
+Personnes impliquées :
+
+- Julien Martin : analyse commerciale.
+- Thomas Leroy : qualité et préparation des données.
+- Marie Dubois : arbitrage des priorités.
+- Camille Rousseau, responsable marketing : contribution à l'interprétation des segments clients.
+
+Merci de privilégier une présentation synthétique, avec des graphiques lisibles et des conclusions justifiées par les données.
+
+Ce travail est important, mais il passe après les échéances urgentes liées à HORIZON 2026 et LIVRAISON+.
+
+Merci pour ton retour.
+
+Bien cordialement,
+
+Camille Rousseau  
+Responsable marketing — Retail360

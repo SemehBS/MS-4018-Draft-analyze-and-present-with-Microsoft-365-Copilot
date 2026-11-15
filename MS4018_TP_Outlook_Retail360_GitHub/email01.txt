@@ -1,0 +1,45 @@
+Expéditeur: Claire Moreau				
+Adresse de l'expéditeur: claire.moreau@retail360.example
+Destinataire (À): Julien Martin — julien.martin@retail360.example 
+Destinataires en copie (Cc): Marie Dubois — marie.dubois@retail360.example ; Sophie Bernard — sophie.bernard@retail360.example
+Objet: [URGENT] HORIZON 2026 — Validation des KPI du bilan commercial 2025
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Bonjour Julien,
+
+Dans le cadre du projet HORIZON 2026, nous devons finaliser le bilan commercial 2025 avant sa transmission à la direction générale.
+
+La réunion de validation est prévue le mardi 17 novembre 2026 à 9 h 30. Le dossier consolidé doit impérativement être transmis au plus tard le lundi 16 novembre à 12 h.
+
+Les indicateurs actuellement disponibles sont les suivants :
+
+- Commandes enregistrées : 600
+- Commandes livrées : 505
+- Chiffre d'affaires HT réalisé : 437 100,35 €
+- Marge HT réalisée : 126 093,35 €
+- Taux de marge global : 28,85 %
+
+Merci de vérifier la cohérence de ces chiffres avec le fichier Excel de référence et de confirmer que seules les commandes livrées sont prises en compte dans le chiffre d'affaires réalisé.
+
+Intervenants et responsabilités :
+
+- Julien Martin, responsable commercial : consolider le bilan et préparer la synthèse.
+- Sophie Bernard, contrôleuse de gestion : vérifier les calculs de chiffre d'affaires, de marge et de taux de marge.
+- Marie Dubois, directrice commerciale : valider la version finale.
+- Thomas Leroy, responsable informatique décisionnelle : assurer la disponibilité des fichiers de reporting.
+
+Actions attendues :
+
+1. Julien doit transmettre la version consolidée avant le 16 novembre à 10 h.
+2. Sophie doit confirmer les KPI avant le 16 novembre à 11 h.
+3. Marie doit valider le dossier avant 12 h.
+4. Thomas doit déposer la version approuvée dans l'espace partagé « HORIZON 2026 ».
+
+Point de vigilance : aucune conclusion sur les meilleures régions ou catégories ne doit être présentée sans analyse détaillée et vérifiée.
+
+Merci de me confirmer rapidement la prise en charge de ces actions.
+
+Cordialement,
+
+Claire Moreau  
+Directrice générale — Retail360
